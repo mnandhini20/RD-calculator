@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rd</title>
+  </head>
+  <body>
+    <div
+      style="
+        background-color: rgb(250, 129, 15);
+        height: 360px;
+        width: 500px;
+        border-radius: 5px;
+        margin-left: 550px;
+        margin-top: 200px;
+      "
+    >
+      <center>
+        <h1>RD calculator</h1>
+        <label style="margin-left: -190px">Principal Amount:</label>
+        <div style="margin-left: 10px; margin-top: 10px">
+          <input
+            style="width: 320px; height: 30px; border-radius: 3px"
+            type="text"
+            id="input1"
+          />
+        </div>
+        <label style="margin-left: -155px; position: absolute; margin-top: 10px"
+          >Interest Rate(%):</label
+        >
+        <div style="margin-left: 10px; margin-top: 35px">
+          <input
+            style="width: 320px; height: 30px; border-radius: 3px"
+            type="text"
+            id="input2"
+          />
+        </div>
+        <label style="margin-left: -155px; position: absolute; margin-top: 10px"
+          >Time(Month):</label
+        >
+        <div style="margin-left: 10px; margin-top: 35px">
+          <input
+            style="width: 320px; height: 30px; border-radius: 3px"
+            type="text"
+            id="input3"
+          />
+        </div>
+        <!-- <p id="result"></p> -->
+      </center>
+      <button
+        onclick="calculateRD()"
+        style="
+          margin-top: 15px;
+          margin-left: 92px;
+          height: 35px;
+          width: 90px;
+          border-radius: 5px;
+          background-color: blue;
+          color: white;
+        "
+      >
+        Calculate
+      </button>
+      <p style="margin-left: 100px" id="result1"></p>
+    </div>
+
+    <script>
+      function calculateRD() {
+        var v1 = parseFloat(document.getElementById("input1").value);
+        var v2 = parseFloat(document.getElementById("input2").value);
+        var v3 = parseFloat(document.getElementById("input3").value);
+        v2 = v2 / 100;
+        var monthlyRate = v2 / 12;
+        var totalAmount = 0;
+        for (var i = 1; i <= v3; i++);
+        {
+          totalAmount += v1 * monthlyRate;
+        }
+
+        document.getElementById("result1").innerHTML =
+          "Total Amount after " + v3 + " months:Rs" + totalAmount.toFixed(2);
+      }
+    </script>
+  </body>
+</html>
